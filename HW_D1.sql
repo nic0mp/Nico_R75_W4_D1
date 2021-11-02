@@ -208,18 +208,27 @@ ORDER BY COUNT(actor_id) DESC;
 
 -- 8. From store_id 1, how many customers have a last name ending with ‘es’? (use customer table) 
 --ANSWER: 13
-SELECT last_name, store_id
+SELECT last_name, store_id 
 FROM customer
-WHERE last_name LIKE '%es'
--- GROUP BY store_id;
+WHERE store_id = '1' AND last_name LIKE '%es';
 
 -- 9. How many payment amounts (4.99, 5.99, etc.) had a number of rentals above 250 
 -- for customers  with ids between 380 and 430? (use group by and having > 250) 
 --ANSWER: 3
+-- SELECT *
+-- FROM payment
+SELECT amount, customer_id
+FROM payment
+WHERE amount BETWEEN 4.99 AND 5.99 AND customer_id BETWEEN 380 AND 430
+
 
 -- 10. Within the film table, how many rating categories are there? And what rating has 
 -- the most  movies total?
 --ANSWER:5 ratings, PG-13 has the most
+-- SELECT *
+-- FROM film
+SELECT COUNT(DISTINCT(rating))
+FROM film;
 
 
 
