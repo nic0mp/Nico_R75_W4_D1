@@ -208,6 +208,10 @@ ORDER BY COUNT(actor_id) DESC;
 
 -- 8. From store_id 1, how many customers have a last name ending with ‘es’? (use customer table) 
 --ANSWER: 13
+SELECT last_name, store_id
+FROM customer
+WHERE last_name LIKE '%es'
+-- GROUP BY store_id;
 
 -- 9. How many payment amounts (4.99, 5.99, etc.) had a number of rentals above 250 
 -- for customers  with ids between 380 and 430? (use group by and having > 250) 
